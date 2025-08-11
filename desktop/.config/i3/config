@@ -1,0 +1,61 @@
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id dunst
+exec --no-startup-id i3-msg workspace number 1 && ghostty --x11-instance-name=main-terminal
+
+font pango:RobotoMono Nerd Font Mono 12
+
+client.focused #000000 #000000 #ffffff #000000 #000000
+client.focused_inactive #000000 #000000 #888888 #000000 #000000
+client.unfocused #000000 #000000 #888888 #000000 #000000
+client.urgent #000000 #000000 #ffffff #000000 #000000
+
+floating_modifier Mod4
+tiling_drag modifier
+default_orientation horizontal
+
+bindsym Mod4+t exec --no-startup-id ghostty --x11-instance-name=floating-terminal -e sh -c 'tmux new-session -A -s main'
+bindsym Mod4+p exec --no-startup-id ghostty --x11-instance-name=floating-python -e python3
+bindsym Mod4+n exec --no-startup-id ghostty --x11-instance-name=floating-nvim -e nvim -i NONE notes.md
+bindsym Mod4+c exec --no-startup-id galculator
+bindsym Mod4+e exec --no-startup-id thunar
+
+bindsym Mod4+space exec --no-startup-id dmenu_run -l 10 -fn "RobotoMono Nerd Font Mono-12"
+
+bindsym Mod4+f fullscreen toggle
+bindsym Mod4+q kill
+
+bindsym Mod4+z exec --no-startup-id maim -s "$HOME/Pictures/$(date +%Y-%m-%d-%H-%M-%S).png"
+
+bindsym Mod4+1 exec --no-startup-id i3-msg workspace number 1 && ps -C ghostty -o cmd | grep x11-instance-name=main-terminal || ghostty --x11-instance-name=main-terminal
+bindsym Mod4+2 exec --no-startup-id i3-msg workspace number 2 && ps -C chrome -o cmd | grep class=main-chrome || google-chrome-stable --class=main-chrome
+bindsym Mod4+3 workspace number 3
+bindsym Mod4+4 workspace number 4
+bindsym Mod4+5 workspace number 5
+bindsym Mod4+6 workspace number 6
+bindsym Mod4+7 workspace number 7
+bindsym Mod4+8 workspace number 8
+bindsym Mod4+9 workspace number 9
+
+bindsym Mod4+Shift+1 exec --no-startup-id i3-msg move container to workspace number 1 && i3-msg workspace number 1
+bindsym Mod4+Shift+2 exec --no-startup-id i3-msg move container to workspace number 2 && i3-msg workspace number 2
+bindsym Mod4+Shift+3 exec --no-startup-id i3-msg move container to workspace number 3 && i3-msg workspace number 3
+bindsym Mod4+Shift+4 exec --no-startup-id i3-msg move container to workspace number 4 && i3-msg workspace number 4
+bindsym Mod4+Shift+5 exec --no-startup-id i3-msg move container to workspace number 5 && i3-msg workspace number 5
+bindsym Mod4+Shift+6 exec --no-startup-id i3-msg move container to workspace number 6 && i3-msg workspace number 6
+bindsym Mod4+Shift+7 exec --no-startup-id i3-msg move container to workspace number 7 && i3-msg workspace number 7
+bindsym Mod4+Shift+8 exec --no-startup-id i3-msg move container to workspace number 8 && i3-msg workspace number 8
+bindsym Mod4+Shift+9 exec --no-startup-id i3-msg move container to workspace number 9 && i3-msg workspace number 9
+
+default_border pixel 0
+for_window [class=".*"] border pixel 0
+
+for_window [instance="main-terminal"] move to workspace 1
+for_window [class="main-chrome"] move to workspace 2
+
+for_window [instance="floating-terminal"] floating enable, border pixel 2, resize set 1280 720, move position center, sticky enable
+for_window [instance="floating-python"] floating enable, border pixel 2, resize set 1280 720, move position center, sticky enable
+for_window [instance="floating-nvim"] floating enable, border pixel 2, resize set 1280 720, move position center, sticky enable
+for_window [window_role="GtkFileChooserDialog"] floating enable, border pixel 2, resize set 1280 720, move position center, sticky enable
+for_window [class="Galculator"] floating enable, border pixel 2, resize set 1280 720, move position center, sticky enable
+for_window [class="Thunar"] floating enable, border pixel 2, resize set 1280 720, move position center, sticky enable
+for_window [class="Nsxiv"] floating enable, border pixel 2, resize set 1280 720, move position center, sticky enable

@@ -1,0 +1,21 @@
+theme = TokyoNight
+
+font-family = RobotoMono Nerd Font Mono
+font-size = 12
+
+scrollbar = never
+resize-overlay = never
+
+window-padding-x = 2
+window-padding-y = 2
+
+cursor-style = block
+cursor-style-blink = true
+
+gtk-single-instance = false
+window-inherit-working-directory = false
+confirm-close-surface = false
+gtk-titlebar = false
+
+keybind = ctrl+tab=unbind
+keybind = ctrl+shift+tab=unbind
