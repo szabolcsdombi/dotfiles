@@ -1,0 +1,21 @@
+gui:
+  showFileTree: false
+  showNumstatInFilesView: true
+  showBottomLine: false
+  nerdFontsVersion: ''
+  showFileIcons: false
+  tabWidth: 2
+
+git:
+  autoFetch: false
+  autoRefresh: false
+  ignoreWhitespaceInDiffView: false
+
+update:
+  method: never
+
+quitOnTopLevelReturn: false
+disableStartupPopups: true
+promptToReturnFromSubprocess: false
+notARepository: quit
+
