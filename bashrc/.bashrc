@@ -8,6 +8,7 @@ HISTCONTROL=ignoreboth
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+set -o vi
 shopt -s histappend
 shopt -s checkwinsize
 
