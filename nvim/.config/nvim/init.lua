@@ -407,12 +407,22 @@ require('lazy').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
-        -- pickers = {}
+        defaults = {
+          mappings = {
+            i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+          },
+          file_ignore_patterns = { '%.git/' },
+        },
+        pickers = {
+          find_files = {
+            hidden = true,
+          },
+          live_grep = {
+            additional_args = function(_)
+              return { '--hidden', '--glob', '!.git/*' }
+            end,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -962,6 +972,35 @@ require('lazy').setup({
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+  },
+
+  {
+    'nvim-pack/nvim-spectre',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = {
+      {
+        '<leader>Sr',
+        function()
+          require('spectre').open()
+        end,
+        desc = 'Replace in files (Spectre)',
+      },
+      {
+        '<leader>Sw',
+        function()
+          require('spectre').open_visual { select_word = true }
+        end,
+        desc = 'Search current word',
+      },
+      {
+        '<leader>Sv',
+        function()
+          require('spectre').open_visual()
+        end,
+        mode = 'v',
+        desc = 'Search current word (visual)',
+      },
+    },
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
