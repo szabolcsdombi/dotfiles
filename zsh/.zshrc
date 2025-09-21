@@ -1,5 +1,5 @@
 ZSH_THEME="robbyrussell"
-CASE_SENSITIVE = true
+CASE_SENSITIVE=true
 plugins=(git)
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
