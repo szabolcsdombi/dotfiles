@@ -6,9 +6,19 @@ tiling_drag modifier
 default_orientation horizontal
 
 bindsym Mod4+Return exec alacritty
-bindsym Mod4+Shift+Return exec browser
-bindsym Mod4+Shift+q kill
+bindsym Mod4+t exec alacritty
+bindsym Mod4+b exec browser
 bindsym Mod4+d exec --no-startup-id dmenu_run
+bindsym Mod4+f fullscreen toggle
+bindsym Mod4+q kill
+
+bindsym Mod4+minus exec sed -i 's/^size = .*$/size = 7.0/g' ~/.config/alacritty/alacritty.toml
+bindsym Mod4+plus exec sed -i 's/^size = .*$/size = 14.0/g' ~/.config/alacritty/alacritty.toml
+
+# bindsym Mod4+h exec --no-startup-id xdotool key Left
+# bindsym Mod4+j exec --no-startup-id xdotool key Down
+# bindsym Mod4+k exec --no-startup-id xdotool key Up
+# bindsym Mod4+l exec --no-startup-id xdotool key Right
 
 bindsym Mod4+y exec sh ~/.config/i3/commands.sh screenshot-selection
 bindsym Mod4+Shift+y exec sh ~/.config/i3/commands.sh screenshot
@@ -43,9 +53,19 @@ bindsym Mod4+Shift+7 move container to workspace number 7
 bindsym Mod4+Shift+8 move container to workspace number 8
 bindsym Mod4+Shift+9 move container to workspace number 9
 
+bindsym --release Mod4+Shift+1 workspace number 1
+bindsym --release Mod4+Shift+2 workspace number 2
+bindsym --release Mod4+Shift+3 workspace number 3
+bindsym --release Mod4+Shift+4 workspace number 4
+bindsym --release Mod4+Shift+5 workspace number 5
+bindsym --release Mod4+Shift+6 workspace number 6
+bindsym --release Mod4+Shift+7 workspace number 7
+bindsym --release Mod4+Shift+8 workspace number 8
+bindsym --release Mod4+Shift+9 workspace number 9
+
 bindsym Mod4+Shift+r restart
-bindsym Mod4+Shift+Ctrl+q exec i3-msg exit
-bindsym Mod4+Shift+Ctrl+s exec shutdown now
+bindsym Mod4+Shift+q exec i3-msg exit
+bindsym Mod4+Shift+s exec shutdown now
 
 default_border pixel 0
 default_floating_border pixel 0
