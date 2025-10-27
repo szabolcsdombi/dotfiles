@@ -8,4 +8,6 @@ export EDITOR='nvim'
 . ~/.oh-my-zsh/oh-my-zsh.sh
 . ~/.venv/bin/activate
 
+setopt localoptions rmstarsilent
+
 alias lg='lazygit'
