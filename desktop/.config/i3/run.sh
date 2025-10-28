@@ -1,4 +1,4 @@
-if [ "$1" = "screenshot" ]; then
+if [ "$1" = "screenshot-fullscreen" ]; then
     maim -u | \
     tee ~/Pictures/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png | \
     xclip -selection clipboard -t image/png -i

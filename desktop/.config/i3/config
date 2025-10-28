@@ -1,4 +1,3 @@
-exec --no-startup-id xmodmap -e "keycode 135 = Super_L"
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id dunst
 
@@ -6,24 +5,18 @@ floating_modifier Mod4
 tiling_drag modifier
 default_orientation horizontal
 
-bindsym Mod4+t exec --no-startup-id alacritty
-bindsym Mod4+b exec --no-startup-id browser
-bindsym Mod4+d exec --no-startup-id dmenu_run
+bindsym Mod4+Return exec --no-startup-id alacritty
+bindsym Mod4+Shift+Return exec --no-startup-id browser
+bindsym Mod4+space exec --no-startup-id dmenu_run
 bindsym Mod4+f fullscreen toggle
 bindsym Mod4+q kill
 
-bindsym Mod4+y exec --no-startup-id sh ~/.config/i3/commands.sh screenshot-selection
-bindsym Mod4+Shift+y exec --no-startup-id sh ~/.config/i3/commands.sh screenshot
-bindsym Mod4+Shift+Ctrl+y exec --no-startup-id sh ~/.config/i3/commands.sh record-screen
+bindsym Mod4+y exec --no-startup-id sh ~/.config/i3/run.sh screenshot-selection
+bindsym Mod4+Shift+y exec --no-startup-id sh ~/.config/i3/run.sh screenshot-fullscreen
+bindsym Mod4+Shift+Ctrl+y exec --no-startup-id sh ~/.config/i3/run.sh record-screen
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
-bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
-bindsym XF86AudioPlay exec --no-startup-id cmus-remote -u
-bindsym XF86AudioNext exec --no-startup-id cmus-remote -n
-bindsym XF86AudioPrev exec --no-startup-id cmus-remote -r
-
-bindsym Mod4+0 workspace next
-bindsym Menu workspace number 1
+bindsym Mod4+equal workspace next
+bindsym Mod4+minus workspace prev
 
 bindsym Mod4+1 workspace number 1
 bindsym Mod4+2 workspace number 2
