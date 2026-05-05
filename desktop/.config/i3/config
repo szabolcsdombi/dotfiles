@@ -1,24 +1,33 @@
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id dunst
 
+font pango:RobotoMono Nerd Font Mono 12
+gaps inner 4
+smart_gaps on
+
+client.focused #000000 #000000 #ffffff #000000 #000000
+client.focused_inactive #000000 #000000 #888888 #000000 #000000
+client.unfocused #000000 #000000 #888888 #000000 #000000
+client.urgent #000000 #000000 #ffffff #000000 #000000
+
 floating_modifier Mod4
 tiling_drag modifier
 default_orientation horizontal
 
 bindsym Mod4+Return exec --no-startup-id kitty
 bindsym Mod4+Shift+Return exec --no-startup-id google-chrome-stable
-bindsym Mod4+space exec --no-startup-id dmenu_run
+bindsym Mod4+space exec --no-startup-id dmenu_run -l 10 -fn "RobotoMono Nerd Font Mono-12"
 bindsym Mod4+f fullscreen toggle
+bindsym Mod4+Shift+f layout toggle splith tabbed
+bindsym Mod4+r floating enable, border normal, resize set 1280 720, move position center
+bindsym Mod4+Shift+r floating disable, border pixel 0, layout default
 bindsym Mod4+q kill
 
-bindsym Mod4+z exec --no-startup-id flameshot gui --region screen0
-bindsym Mod4+Shift+z exec --no-startup-id flameshot gui --region screen0 --delay 3000
+bindsym Mod4+z exec --no-startup-id flameshot gui --region 0x0+0+0
+bindsym Mod4+Shift+z exec --no-startup-id flameshot gui --region 0x0+0+0 --delay 3000
 
-bindsym Mod4+equal workspace next
-bindsym Mod4+minus workspace prev
-
-bindsym Mod4+Shift+equal exec --no-startup-id pamixer -i 1
-bindsym Mod4+Shift+minus exec --no-startup-id pamixer -d 1
+bindsym Mod4+equal focus next
+bindsym Mod4+minus workspace next
 
 bindsym Mod4+1 workspace number 1
 bindsym Mod4+2 workspace number 2
@@ -41,5 +50,10 @@ bindsym Mod4+Shift+8 exec --no-startup-id i3-msg move container to workspace num
 bindsym Mod4+Shift+9 exec --no-startup-id i3-msg move container to workspace number 9 && i3-msg workspace number 9
 
 default_border pixel 0
-default_floating_border pixel 0
+# default_floating_border pixel 0
 for_window [class=".*"] border pixel 0
+
+for_window [window_role="GtkFileChooserDialog"] floating enable, border normal, resize set 1200 1000, move position center
+
+for_window [class="kitty"] move to workspace 1, workspace number 1
+for_window [class="Google-chrome"] move to workspace 2, workspace number 2
