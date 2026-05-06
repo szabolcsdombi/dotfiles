@@ -308,6 +308,16 @@ require('lazy').setup({
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
         defaults = {
+          path_display = {
+            'filename_first',
+          },
+          layout_config = {
+            horizontal = {
+              width = { padding = 0 },
+              height = { padding = 0 },
+              preview_width = 0.7,
+            },
+          },
           mappings = {
             i = { ['<c-enter>'] = 'to_fuzzy_refine' },
           },
